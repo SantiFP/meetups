@@ -32,7 +32,7 @@ export const getStaticPaths = async () => {
   client.close();
   console.log(meetups);
   return {
-    fallback: false,
+    fallback: 'blocking',
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
@@ -62,7 +62,7 @@ export const getStaticProps = async (context) => {
         image: selectedMeetup.image,
       },
     },
-  };x
+  };
 };
 
 export default MeetupDetails;
