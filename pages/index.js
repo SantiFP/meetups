@@ -26,7 +26,7 @@ const homePage = (props) => {
 //   };
 // };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const client = await MongoClient.connect(
     "mongodb+srv://santiFP:xVxem28YNxbGZhmz@usersdb-movy.imjdj.mongodb.net/meetups?retryWrites=true&w=majority"
   );
@@ -45,6 +45,7 @@ export const getServerSideProps = async () => {
         id: meetup._id.toString(),
       })),
     },
+    revalidate: 1
   };
 };
 
