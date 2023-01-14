@@ -3,6 +3,8 @@ import { MongoClient } from "mongodb";
 import Head from "next/head";
 
 const homePage = (props) => {
+
+  console.log('hola');
   return (
     <>
       <Head>
