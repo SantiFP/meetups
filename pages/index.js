@@ -4,7 +4,6 @@ import Head from "next/head";
 
 const homePage = (props) => {
 
-  console.log('hola');
   return (
     <>
       <Head>
@@ -27,7 +26,7 @@ const homePage = (props) => {
 //   };
 // };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const client = await MongoClient.connect(
     "mongodb+srv://santiFP:xVxem28YNxbGZhmz@usersdb-movy.imjdj.mongodb.net/meetups?retryWrites=true&w=majority"
   );
@@ -46,7 +45,6 @@ export const getStaticProps = async () => {
         id: meetup._id.toString(),
       })),
     },
-    revalidate: 1
   };
 };
 
