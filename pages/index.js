@@ -1,6 +1,7 @@
 import MeetupList from "../components/meetups/MeetupList";
 import { MongoClient } from "mongodb";
 import Head from "next/head";
+import Link from "next/link";
 
 const homePage = (props) => {
 
@@ -11,6 +12,8 @@ const homePage = (props) => {
         <meta name="description" content="places to meet" />
       </Head>
       <MeetupList meetups={props.meetups} />
+      <Link href='/'> <button>Click me</button> </Link>
+      
     </>
   );
 };
