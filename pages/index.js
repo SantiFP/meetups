@@ -12,7 +12,6 @@ const homePage = (props) => {
         <meta name="description" content="places to meet" />
       </Head>
       <MeetupList meetups={props.meetups} />
-      <Link href='/'> <button>Click me</button> </Link>
       
     </>
   );
