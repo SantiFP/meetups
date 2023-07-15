@@ -4,8 +4,15 @@ import { MongoClient, ObjectId } from "mongodb";
 import { MeetupData } from "@/components/meetups/NewMeetupForm";
 import Head from "next/head";
 
+export interface MeetupFromDb {
+  id: string;
+  title: string;
+  image: string;
+  address: string;
+  description: string;
+}
 interface MeetUpFetched {
-  meetup: MeetupData;
+  meetup: MeetupFromDb;
 }
 
 const MeetupDetailPage = (props: MeetUpFetched) => {
@@ -14,11 +21,13 @@ const MeetupDetailPage = (props: MeetUpFetched) => {
       <Head>
         <title>{props.meetup.title}</title>
         <meta name="description" content={props.meetup.description} />
-        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2010-kodiak-bear-1.jpg/1200px-2010-kodiak-bear-1.jpg" />
+        <link
+          rel="icon"
+          href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2010-kodiak-bear-1.jpg/1200px-2010-kodiak-bear-1.jpg"
+        />
       </Head>
 
       <MeetupDetail
-        id={props.meetup.id}
         title={props.meetup.title}
         image={props.meetup.image}
         address={props.meetup.address}

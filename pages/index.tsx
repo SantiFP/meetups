@@ -1,10 +1,10 @@
 import MeetupList from "@/components/meetups/MeetupList";
-import { MeetupData } from "@/components/meetups/NewMeetupForm";
 import { MongoClient } from "mongodb";
 import Head from "next/head";
+import { MeetupFromDb } from "./[meetupId]";
 
 interface Props {
-  meetups: MeetupData[];
+  meetups: MeetupFromDb[];
 }
 
 const Home = (props: Props) => {

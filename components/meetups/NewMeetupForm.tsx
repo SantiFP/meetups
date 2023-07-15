@@ -4,7 +4,6 @@ import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
 
 export interface MeetupData {
-  id: string;
   title: string;
   image: string;
   address: string;
@@ -29,7 +28,6 @@ const NewMeetupForm = (props: {
 
     if (enteredTitle && enteredImage && enteredAddress && enteredDescription) {
       const meetupData = {
-        id: Math.random().toString(),
         title: enteredTitle,
         image: enteredImage,
         address: enteredAddress,

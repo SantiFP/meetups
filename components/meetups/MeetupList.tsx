@@ -1,11 +1,12 @@
 import MeetupItem from './MeetupItem';
 import classes from './MeetupList.module.css';
-import { MeetupData } from './NewMeetupForm';
+import { MeetupFromDb } from '@/pages/[meetupId]';
 
-const MeetupList = (props:{meetups: MeetupData[]}) => {
+
+const MeetupList = (props:{meetups: MeetupFromDb[]}) => {
   return (
     <ul className={classes.list}>
-      {props.meetups.map((meetup: MeetupData) => (
+      {props.meetups.map((meetup: MeetupFromDb) => (
         <MeetupItem
           key={meetup.id}
           id={meetup.id}
