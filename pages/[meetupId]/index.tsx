@@ -14,13 +14,6 @@ interface MeetUpFetched {
   meetup: MeetupFromDb;
 }
 
-// export interface MeetupToDb {
-//   id: string;
-//   title: string;
-//   image: string;
-//   address: string;
-//   description: string;
-// }
 
 const MeetupDetailPage = (props: MeetUpFetched) => {
 
@@ -62,7 +55,7 @@ export const getStaticPaths = async () => {
   client.close();
 
   return {
-    fallback: false,
+    fallback: true,
     paths: meetups.map((el) => ({ params: { meetupId: el._id.toString() } })),
   };
 };
