@@ -1,7 +1,6 @@
 import MeetupDetail from "@/components/meetups/MeetupDetai";
 import { GetStaticPropsContext } from "next";
 import { MongoClient, ObjectId } from "mongodb";
-import { MeetupData } from "@/components/meetups/NewMeetupForm";
 import Head from "next/head";
 
 export interface MeetupFromDb {
@@ -16,6 +15,8 @@ interface MeetUpFetched {
 }
 
 const MeetupDetailPage = (props: MeetUpFetched) => {
+
+  console.log(props);
   return (
     <>
       <Head>
@@ -53,7 +54,7 @@ export const getStaticPaths = async () => {
   client.close();
 
   return {
-    fallback: true,
+    fallback: false,
     paths: meetups.map((el) => ({ params: { meetupId: el._id.toString() } })),
   };
 };
@@ -73,6 +74,8 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   });
 
   client.close();
+
+  console.log('props en getStaticProps',selectedMeetup);
 
   return {
     props: {
