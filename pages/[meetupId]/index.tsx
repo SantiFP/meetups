@@ -14,13 +14,13 @@ interface MeetUpFetched {
   meetup: MeetupFromDb;
 }
 
-export interface MeetupToDb {
-  _id: string;
-  title: string;
-  image: string;
-  address: string;
-  description: string;
-}
+// export interface MeetupToDb {
+//   id: string;
+//   title: string;
+//   image: string;
+//   address: string;
+//   description: string;
+// }
 
 const MeetupDetailPage = (props: MeetUpFetched) => {
 
@@ -79,7 +79,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
   const selectedMeetup = await meetupsCollection.findOne({
     _id: new ObjectId(id),
-  }) as MeetupToDb;
+  }) 
 
   client.close();
 
@@ -88,11 +88,11 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   return {
     props: {
       meetup: {
-        id: selectedMeetup._id.toString(),
-        title: selectedMeetup.title,
-        address: selectedMeetup.address,
-        image: selectedMeetup.image,
-        description: selectedMeetup.description,
+        id: selectedMeetup?._id.toString(),
+        title: selectedMeetup?.title,
+        address: selectedMeetup?.address,
+        image: selectedMeetup?.image,
+        description: selectedMeetup?.description,
       },
     },
   };
