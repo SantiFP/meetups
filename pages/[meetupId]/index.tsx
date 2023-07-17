@@ -76,8 +76,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
   client.close();
 
-  console.log('props en getStaticProps',selectedMeetup);
-
   return {
     props: {
       meetup: {
