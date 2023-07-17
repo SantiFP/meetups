@@ -17,7 +17,6 @@ interface MeetUpFetched {
 
 const MeetupDetailPage = (props: MeetUpFetched) => {
 
-  console.log(props);
   return (
     <>
       <Head>
